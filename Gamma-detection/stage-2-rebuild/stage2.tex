@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,a4paper]{article}% 文档格式
+\usepackage{ctex,hyperref}% 输出汉字
+\usepackage{times}% 英文使用Times New Roman
+\usepackage{tcolorbox} % 用于给文字周围加框
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 导入代码块
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+    language=, % 设置代码的编程语言，例如Python、Bash等
+    basicstyle=\small\ttfamily, % 设置代码的基本字体样式
+    keywordstyle=\color{blue}, % 设置关键字的颜色
+    commentstyle=\color{green!60!black}, % 设置注释的颜色
+    numbers=none, % 设置行号的位置，可选值有left、right、none
+    numberstyle=\tiny\color{gray}, % 设置行号的字体样式
+    stepnumber=1, % 设置行号的间隔
+    numbersep=1pt, % 设置行号与代码的间距
+    backgroundcolor=\color{gray!10}, % 设置代码的背景颜色
+    frame=single, % 设置代码框的样式，可选值有none、single、shadowbox等
+    breaklines=true, % 自动换行
+    showstringspaces=false, % 控制是否显示代码中的空格
+    captionpos=b % 设置代码标题的位置，可选值有t、b
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\fontsize{24pt}{24pt}\selectfont% 小四字号，1.5倍行距
+	{\heiti% 黑体 
+		阶段二~实验报告}\\[0.5ex] % 主标题
+	{\fontsize{16pt}{24pt}\selectfont% 小三字号，1.5倍行距
+		\heiti——~Gamma在液体闪烁体内的能量沉积}}% 副标题}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{\fontsize{12pt}{18pt}\selectfont% 小四字号，1.5倍行距
+	{\fangsong% 仿宋
+		致理-数理1~~~刘苏青}\thanks{\href{mailto:liu-sq21@mails.tsinghua.edu.cn}{liu-sq21@mails.tsinghua.edu.cn}}% 标题栏脚注
+        {\fangsong
+        ~~~2021013371}\\
+        {\fontsize{12pt}{18pt}\selectfont
+        {\fangsong
+        致理-物12~~~卢一鸣\thanks{\href{mailto:luym21@mails.tsinghua.edu.cn}{luym21@mails.tsinghua.edu.cn}}}
+        {\fangsong
+        ~~~2021013384}}\\
+        {\fontsize{12pt}{18pt}\selectfont
+        {\fangsong
+        致理-数理1~~~马腾跃\thanks{\href{mailto:mty21@mails.tsinghua.edu.cn}{mty21@mails.tsinghua.edu.cn}}}
+        {\fangsong
+        ~~~2021013389}}\\
+	\fontsize{10.5pt}{15.75pt}\selectfont% 五号字号，1.5倍行距
+	{\fangsong% 仿宋
+		2023~/~08~/~24}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\date{}% 日期（这里避免生成日期）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb}% 为公式输入创造条件的宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}% 图片插入宏包
+\usepackage{animate}% gif插入宏包
+\usepackage{subfigure}% 并排子图
+\usepackage{float}% 浮动环境，用于调整图片位置
+\usepackage[export]{adjustbox}% 防止过宽的图片
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{bibentry}
+\usepackage{natbib}% 以上2个为参考文献宏包
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{abstract}% 两栏文档，一栏摘要及关键字宏包
+\renewcommand{\abstracttextfont}{\fangsong}% 摘要内容字体为仿宋
+\renewcommand{\abstractname}{\textbf{摘\quad 要}}% 更改摘要二字的样式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}% 字体颜色宏包
+\newcommand{\red}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\blue}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\green}[1]{\textcolor[rgb]{0.00,1.00,0.00}{#1}}
+\newcommand{\darkblue}[1]
+{\textcolor[rgb]{0.00,0.00,0.50}{#1}}
+\newcommand{\darkgreen}[1]
+{\textcolor[rgb]{0.00,0.37,0.00}{#1}}
+\newcommand{\darkred}[1]{\textcolor[rgb]{0.60,0.00,0.00}{#1}}
+\newcommand{\brown}[1]{\textcolor[rgb]{0.50,0.30,0.00}{#1}}
+\newcommand{\purple}[1]{\textcolor[rgb]{0.50,0.00,0.50}{#1}}% 为使用方便而编辑的新指令
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}% 超链接
+\usepackage{bm}% 加粗部分公式
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{longtable}% 长表格
+\usepackage{supertabular}% 跨页表格
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{changepage}% 换页
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}% 短编号
+\usepackage{caption}% 设置标题
+\captionsetup[figure]{name=\fontsize{10pt}{15pt}\selectfont Figure}% 设置图片编号头
+\captionsetup[table]{name=\fontsize{10pt}{15pt}\selectfont Table}% 设置表格编号头
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{indentfirst}% 中文首行缩进
+\usepackage[left=2.50cm,right=2.50cm,top=2.80cm,bottom=2.50cm]{geometry}% 页边距设置
+\renewcommand{\baselinestretch}{1.5}% 定义行间距（1.5）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr} %设置全文页眉、页脚的格式
+\pagestyle{fancy}
+\hypersetup{colorlinks=true,linkcolor=black}% 去除引用红框，改变颜色
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[bottom]{footmisc}
+\usepackage{ulem}
+\usepackage{listings}
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\footnotesize, % 设置为较小的字体大小
+  keywordstyle=\bfseries\color{blue},
+  commentstyle=\color{green!60!black},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10},
+  captionpos=b,
+  xleftmargin=1em,
+  framexleftmargin=1em,
+}
+\tcbuselibrary{breakable}
+\begin{document}% 以下为正文内容
+	\maketitle% 产生标题，没有它无法显示标题
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\lhead{}% 页眉左边设为空
+	\chead{}% 页眉中间设为空
+	\rhead{}% 页眉右边设为空
+	\lfoot{}% 页脚左边设为空
+	\cfoot{\thepage}% 页脚中间显示页码
+	\rfoot{}% 页脚右边设为空
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{abstract}
+		\fangsong 本文首先大致概括了大作业阶段二的整体思路，然后详细阐述了git上各文件的用法，最后提出大作业实现过程中遇到的问题，并给出相应的解决方法，便于读者快速了解我们组的项目成果。
+	\end{abstract}
+	
+	\begin{adjustwidth}{1.06cm}{1.06cm}
+		\fontsize{10.5pt}{15.75pt}\selectfont{\heiti{关键词：}\fangsong{极大似然、能量沉积、相互作用点、液体闪烁体}}\\
+	\end{adjustwidth}
+ 
+	\iffalse
+	\begin{center}% 居中处理
+		{\textbf{Abstract}}% 英文摘要
+	\end{center}
+	\begin{adjustwidth}{1.06cm}{1.06cm}% 英文摘要内容
+		\hspace{1.5em}Attention！If you input "dif{}ferent", the computer will output "different", but if you input "dif\{\}ferent", the computer will output "dif{}ferent"
+	\end{adjustwidth}
+        \fi
+	\newpage
+        \tableofcontents
+        \newpage
+
+
+\section{整体思路}
+    大作业阶段二主要通过rank.cpp程序，实现了对一系列相互作用子事件的排序。我们的核心思路是以相互作用子事件的顺序作为参数，考虑每个事件中所有相互作用子事件的全排列，然后根据部分观测量构造似然函数，并找到其最大似然对应的排序作为预测排序。
+    
+    首先，我们考虑每种排列下沉积能量对应的概率$p_E$。由于电子的运动尺度$\sim 1$mm，光子的平均自由程(即相邻相互作用子事件的平均距离)$\sim 10^2$mm，因此我们在不知道具体的电子运动轨迹时，可以忽略其沉积过程，直接用能量沉积重心来代替相互作用点。选择任意相邻的三个相互作用子事件可以确定散射角度，根据康普顿散射的原理，在已知入射光子能量和散射角度时，就能够计算出沉积能量的理论值$E$。根据能量分辨率$\sigma_E/E$的计算公式可计算出沉积能量的观测标准差$\sigma_E$。假设沉积能量的观测值服从正态分布，则在$E^*\sim \mathcal N(E, \sigma_E)$下计算$p(E^*=E_{dep})$即为每个相互作用子事件沉积能量对应的概率，将全部相互作用子事件的概率求积可得该排列下沉积能量对应的概率$p_E$。
+
+    然后，我们考虑每种排列下时间对应的概率$p_t$。选择任意相邻的两个相互作用子事件可以确定相互作用距离，除以光速可以得到时间间隔的理论值，进而可以计算每个相互作用点处的时间的理论值$t$(初始时间为0)。假设时间间隔的观测值服从正态分布，则在$t^*\sim \mathcal N(t, 1.5)$下计算$p(t^*=time)$即为每个相互作用子事件的时间对应的概率，将全部相互作用子事件的概率求积可得该排列下时间对应的概率$p_t$。
+    
+    此外，我们考虑每种排列下相互作用距离的概率$p_{inter}$。选择任意相邻的两个相互作用子事件可以确定相互作用距离$x$，根据相互作用点的定义，在已知入射光子能量时，就能够计算出平均自由程的理论值$\lambda$。假设相互距离的观测值服从指数分布，则在$x^*\sim \mathcal E(\lambda)$下计算$p(x^*=x)$即为每个相互作用距离对应的概率，将全部相互作用距离的概率求积可得该排列下时间对应的概率$p_{inter}$。
+
+    最后，计算三个概率之积$\mathcal L=p_E*p_t*p_{inter}$作为似然函数，由于若干个0和1之间的概率之积非常小，可能会超出计算机的计算精度，因此我们将所有概率取对数后再求和来处理。
+    \newpage
+\section{实现方式}
+    \subsection{数据预处理}
+    此R程序命名为data\_preprocessing.R，用于实现数据预处理的功能。通过引入rhdf5包，该程序可读取deposit\_test.h5文件，并将第i个事件对应的数据拆分出来保存在data/i.txt中。文件i.txt的第一行为该事件对应的相互作用子事件的个数，第二行往后为第i个事件对应的数据(deposit\_test.h5)文件的第二至七列。
+    
+    \subsection{单个事例计算}
+    此cpp程序命名为rank\_90/140/150.cpp，且已经编译成名为rank\_90/140/150的可执行文件。你可以直接运行该文件，并在输入框中粘贴标准格式的输入内容(格式见data\_preprocessing.R处理后的形式)，按下回车计算单个事例最有可能的作用点排列顺序。\par
+ 
+
+
+\begin{tcolorbox}[width=16cm]
+    \begin{itemize}
+    \item \textbf{Sigma 类}: 该类包括两个向量 E\_gamma\_values 和 LS\_sigma\_values。此类的实例可以从文件加载数据，并提供线性插值搜索的方法,以实现对每个入射光子能量E\_gamma给出一个液闪分子单位体积总散射截面 LS\_sigma的作用。
+    \begin{lstlisting}[style=mystyle]
+    class Sigma \{
+    private:
+        vector E_gamma_values;
+        vector LS_sigma_values;
+        ...
+    \};
+    \end{lstlisting}  
+    
+    \item \textbf{全局 sigma 实例}: Sigma 类的实例，从文件 "LS\_sigma\_data.dat" 加载数据。
+    \begin{lstlisting}[style=mystyle]
+    Sigma sigma("LS_sigma_data.dat");
+    \end{lstlisting}
+    
+    \item \textbf{vec\_dot 函数}: 一个函数，它接受两个向量并计算它们的点积。
+    \begin{lstlisting}[style=mystyle]
+    double vec_dot(vec vec1, vec vec2) {...}
+    \end{lstlisting}
+    
+    \item \textbf{calculate\_theta 函数}: 一个函数，它接受三个整数作为参数并计算两个向量之间的夹角。
+    \begin{lstlisting}[style=mystyle]
+    double calculate_theta(int pre, int now, int suf) {...}
+    \end{lstlisting}
+    
+    \item \textbf{calculate\_prob 函数}: 一个函数，根据正态分布公式计算某个值在此分布下的概率。
+    \begin{lstlisting}[style=mystyle]
+    double calculate_prob(double x_std, double sig_std, double x_test) {...}
+    \end{lstlisting}
+    
+    \item \textbf{calculate\_energy\_sigma 函数}: 一个根据题目所给公式计算能量标准偏差的函数。
+    \begin{lstlisting}[style=mystyle]
+    double calculate_energy_sigma(double E_std) {...}
+    \end{lstlisting}
+    \end{itemize}
+\end{tcolorbox} 
+
+\begin{tcolorbox}[width=16cm]
+    \begin{itemize}    
+    \item \textbf{dfs 函数}: 一个函数，利用深度优先搜索来寻找最有可能的物理路径。
+
+    如果直接枚举所有可能的全排列来计算概率密度，复杂度为$\Theta(n!)$，在n较大时不能完成任务
+
+    我们采用搜索的方式枚举所有的全排列，也就是采用“依次确定每个位置上放置的数”的方法。这样我们可以每次试探一个电子沉积点的顺序，计算“若此电子沉积点是处于正确位置时”对应的相互作用概率、光子运动时间概率以及能量沉积概率。而若这三个概率中其中任意一个极小，则可以直接舍弃剩余可能的放置顺序(剩余的电子沉积点任意排列，都不能弥补这一极小概率)。
+
+    值得注意的是，能量观测器所收集到的能量信息是较为准确的(标准差较小)。这意味着如果在某一个点，计算得到的能量与观测器收集到的能量存在一定差距，就会得到极小的概率密度。因此，我们上述的\textbf{剪枝}操作能够极大地减少枚举不可行排列的时间复杂度。。
+
+    剩余计算相互作用概率、光子运动时间概率以及能量沉积概率的部分是简单的。
+
+    \begin{lstlisting}[style=mystyle]
+    void dfs(int k, double fval, double tval, double eval) {...}
+    \end{lstlisting}
+    \end{itemize}
+\end{tcolorbox}
+ 
+    
+    
+    \subsection{批量计算}
+    为了最大程度利用服务器CPU多核性能，我们采用如下方法进行并行计算：即先将2000个事件的数据划分成指定的若干组，再通过create\_run\_bash.sh生成同等数量的bash脚本，而后通过parallel.sh同时运行，从而实现对每个组的数据进行并行计算。
+    
+    下面逐步介绍实现这一功能的所有脚本的主要组成部分和功能：
+    
+    \begin{tcolorbox}[width=16cm]
+ 
+        \begin{itemize}
+            \item \textbf{create\_run\_bash.sh}：自动生成指定数目的计算脚本，存储到script\/文件夹中，并给予它们运行权限。
+    
+            \item \textbf{run\{i\}.sh}：对特定组别的事例输入文件，调用可执行文件rank进行计算，把标准输出保存至output/\{i\}\_ans.txt文件中。
+            
+            \item \textbf{parallel.sh}：运行所有的run\{i\}.sh脚本。
+            
+            \end{itemize}
+    \end{tcolorbox}  
+    
+    \subsection{输出结果合并}
+    此R程序命名为output\_merging.R，用于实现输出结果合并的功能。通过引入rhdf5和data.table包，该程序可读取第i个事件对应的输出结果data/i\_ans.txt，并将所有输出结果汇总整理成题目所需的格式，然后输出为order\_test.h5文件。
+    
+\section{小组分工}
+    \begin{itemize}
+        \item \textbf{刘苏青}：编写data\_preprocessing.R、output\_merging.R程序和parallel.sh脚本，在服务器上运行测试程序以完成最后的衔接工作，整理仓库，并编辑写作实验报告的对应部分。
+        \item \textbf{卢一鸣}：提出思路，编写rank.cpp程序，整理仓库，并编辑写作实验报告的对应部分。
+        \item \textbf{马腾跃}：编写create\_run\_bash.sh脚本、is\_empty.sh脚本和Makefile文件，调整各文件接口，在服务器上运行测试程序，整理仓库，并编辑写作实验报告的主要框架及对应部分。
+    \end{itemize}
+\newpage
+\section{成果复现说明}
+为确保整个流程的完整性、可复现性和一次性，我们使用GNU make来组织所有的程序文件。执行特定任务需要直接在命令行中输入对应的命令，比如make all来执行所有任务。根据所使用的计算平台的能力，可以在Makefile开头设置计算脚本的数量script\_count和每个脚本计算的事例数data\_per\_script。(数值设置参考：CPU：11th Gen Intel(R) core(TM) i7-11800H；内存：16GB 。script\_count设置为十，基本刚好达到CPU最大功耗并维持系统正常运转。若要使用服务器来加速计算，则可以考虑将Makefile中的data\_per\_script设为1、script\_count设为2000)\par
+Makefile各指令具体调用方法如下：
+\begin{tcolorbox}[width=16cm, breakable]
+    \begin{enumerate}
+        \item \textbf{make all 或 make}：
+        执行所有任务，包括运行所有脚本、生成所有结果。
+        \item \textbf{make data}：
+        运行data\_processing.R脚本处理数据deposit\_test.h5，生成2000个事例所对应的.txt输入文件。
+        \item \textbf{make script}：
+        运行create\_run\_bash.sh脚本，生成指定数量的bash脚本，用于分段排序处理两千个事例。
+        \item \textbf{make output}：
+        运行parallel.sh脚本，并行运行所有的计算bash脚本。
+        \item \textbf{make output\_merging.R}：
+        运行output\_merging.R脚本剪贴并处理所有输出的txt文件，生成order\_test.h5文件。
+        \item \textbf{make clean}：
+        执行清理任务，删除所有的输出文件。
+    \end{enumerate}   
+\end{tcolorbox}
+
+此外，为了保证对linux平台的适用性，我们把程序的编译过程写入了Makefile中，如果需要单独编译rank.cpp，可以单独使用make rank\_90/140/150命令。
+
+\newpage
+\section{问题及解决方案}
+\subsection{计算的主程序运行精度问题}
+在rank.cpp文件编写过程中，我们设置了exit\_limit这一变量，以决定某三个连续的相互作用子事件的排列的概率是否过于小以至于可以忽略这种全排列。将exit\_limit设置为较大的值，可以放宽这一剪枝操作的范围，加速程序运行，但会忽略一些情况，造成精度缺失。反之，则会提高结果的精度，但会极大地放慢程序运行的速度。因此，我们根据多次运行的经验对个别事件设置了稍高的exit\_limit，以缩短程序的运行时间。
+
+\subsection{个别事件运行不出结果的问题}
+在运行程序的过程中，我们发现个别事件(event\_id=671、741、1472、1647和1984)在我们设置的参数范围内得不到任何结果(此时运行时长已经较长，不宜再修改参数范围了)。因此，我们选择跳过这五个事件，并根据deposit\_test.h5中的time列的数据对该事件的所有相互作用子事件进行粗略排序，然后和其他大多数事件一并赋值到order\_test.h5文件中。
+
+\subsection{相互作用距离对应的概率$p_{inter}$}
+在运行程序的过程中，我们发现考虑相互作用距离对应的概率$p_{inter}$并未对准确率带来较为明显的提升，反而会降低程序的运行速度。因此，我们在最终版的程序里移除了这部分概率带来的影响。
+
+\end{document}
